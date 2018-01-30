@@ -13,4 +13,14 @@ layui.config({
         $ = layui.jquery,
         layer = layui.layer,
         navbar = layui.navbar();
+        //左侧竖导航 start
+        navbar.set({
+            elem: '#nav',
+            url: "./api/navbar.json"//数据源地址
+        });
+        navbar.render();
+        // 左侧竖导航 end
+        $(".panel a").on("click",function(){
+            window.parent.addTab($(this));
+        })
 });
