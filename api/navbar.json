@@ -1,33 +1,23 @@
 [
     {
-        "title": "武斌博客",
-        "icon": "fa-cubes",
+        "title": "后台首页",
+        "icon": "fa-television",
         "spread": true,
-        "href": "",
-        "children": [
-            {
-                "title": "php",
-                "icon": "",
-                "href": "button.html"
-            },
-            {
-                "title": "laravel",
-                "icon": "ဂ",
-                "href": "button.html"
-            },
-            {
-                "title": "thinkphp",
-                "icon": "",
-                "href": "button.html"
-            }
-        ]
+        "href": "welcome.html"
     },
     {
-        "title": "一级导航",
-        "icon": "fa-stop-circle",
+        "title": "内容管理",
+        "icon": "&#xe705;",
         "spread": true,
-        "href": "http://www.baidu.com",
-        "target" : "_blank"
+        "children": [
+            {
+                "title": "导航管理",
+                "icon": "",
+                "href": "nav.html"
+            }
+        ]
     }
+
+
 ]
 

@@ -19,10 +19,14 @@
         <div class="layui-logo">www.wubin.pro</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-
+            <li class="layui-nav-item admin-side-toggle">
+                <a href="javascript:;">
+                    <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
         </ul>
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="javascript:;" id="clearCache">清除缓存</a></li>
             <li class="layui-nav-item"><a href="">商品管理</a></li>
             <li class="layui-nav-item"><a href="">用户</a></li>
             <li class="layui-nav-item">
@@ -62,22 +66,21 @@
         </ul>
     </div>
     <!--侧边竖导航 start-->
-    <div class="layui-side layui-bg-black">
+    <div class="layui-side layui-bg-black" id="cr-admin-side">
         <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree" id="nav"  lay-filter="nav">
-            </ul>
+            <!-- 左侧竖导航区域 -->
+            <ul class="layui-nav layui-nav-tree" id="nav"  lay-filter="nav"></ul>
         </div>
     </div>
     <!--侧边竖导航 end-->
     <!--主题内容区域 start-->
-    <div class="layui-body">
+    <div class="layui-body" id="cr-admin-body">
         <!-- 内容主体区域 -->
         <div >
             <div class="layui-tab admin-nav-card layui-tab-brief" lay-filter="admin-tab">
                 <ul class="layui-tab-title">
                     <li class="layui-this">
-                        <i class="fa fa-dashboard" aria-hidden="true"></i>
+                        <i class="fa fa-television" aria-hidden="true"></i>
                         <cite>后台首页</cite>
                     </li>
                 </ul>
@@ -91,7 +94,7 @@
     </div>
     <!--主题内容区域 end-->
     <!-- 底部固定区域 start-->
-    <div class="layui-footer footer">
+    <div class="layui-footer footer" id="cr-admin-footer">
         © 2018 <a href="http://www.wubin.pro">武斌博客(www.wubin.pro)</a> - wubin.mail@foxmail.com
     </div>
     <!-- 底部固定区域 end-->

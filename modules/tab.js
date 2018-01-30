@@ -213,17 +213,16 @@ layui.define(['element', 'common'], function (exports) {
                 div.style.backgroundColor = 'white';
 
                 var ul = '<ul>';
-                ul += '<li data-target="refresh" title="刷新当前选项卡"><i class="fa fa-refresh" aria-hidden="true"></i> 刷新</li>';
-                ul += '<li data-target="closeCurrent" title="关闭当前选项卡"><i class="fa fa-close" aria-hidden="true"></i> 关闭当前</li>';
-                ul += '<li data-target="closeOther" title="关闭其他选项卡"><i class="fa fa-window-close-o" aria-hidden="true"></i> 关闭其他</li>';
-                ul += '<li data-target="closeAll" title="关闭全部选项卡"><i class="fa fa-window-close-o" aria-hidden="true"></i> 全部关闭</li>';
+                ul += '<li data-target="refresh" title="刷新当前选项卡"> refresh</li>';
+                ul += '<li data-target="closeCurrent" title="关闭当前选项卡"> close </li>';
+                ul += '<li data-target="closeOther" title="关闭其他选项卡"></i> close others</li>';
+                ul += '<li data-target="closeAll" title="关闭全部选项卡"> close all</li>';
                 ul += '</ul>';
                 div.innerHTML = ul;
                 div.style.top = e.pageY + 'px';
                 div.style.left = e.pageX + 'px';
                 //将dom添加到body的末尾
                 document.getElementsByTagName('body')[0].appendChild(div);
-
                 //获取当前点击选项卡的id值
                 var id = $($target).find('i.layui-tab-close').data('id');
                 //获取当前点击选项卡的索引值
@@ -236,7 +235,6 @@ layui.define(['element', 'common'], function (exports) {
                         $that.on('click', function () {
                             //获取点击的target值
                             var target = $that.data('target');
-                            //
                             switch (target) {
                                 case 'refresh': //刷新当前
                                     var src = ELEM.contentBox.find('iframe[data-id=' + id + ']')[0].src;

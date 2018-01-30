@@ -329,7 +329,7 @@ body .site-demo-nav .layui-nav-item{line-height: 40px}
 /**/
 .admin-main {margin: 15px;}
 
-.admin-side-toggle,.admin-side-full{
+.admin-side-full{
     position: absolute; cursor: pointer;
     z-index: 19940201;
     left: 200px;
@@ -341,9 +341,7 @@ body .site-demo-nav .layui-nav-item{line-height: 40px}
     line-height: 30px;
     top: 25%;
 }
-.admin-side-toggle:hover{
-    background-color: #5FB878;
-}
+
 .admin-side-full{
     left: 240px;
 }
