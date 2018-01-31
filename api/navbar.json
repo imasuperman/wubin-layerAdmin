@@ -1,11 +1,5 @@
 [
     {
-        "title": "后台首页",
-        "icon": "fa-television",
-        "spread": true,
-        "href": "welcome.html"
-    },
-    {
         "title": "内容管理",
         "icon": "&#xe705;",
         "spread": true,
@@ -14,10 +8,62 @@
                 "title": "导航管理",
                 "icon": "",
                 "href": "nav.html"
+            },
+            {
+                "title": "栏目管理",
+                "icon": "fa-certificate",
+                "href": "category.html"
+            },
+            {
+                "title": "标签管理",
+                "icon": "fa-tags",
+                "href": "tag.html"
+            },
+            {
+                "title": "文章管理",
+                "icon": "fa-clipboard",
+                "href": "article.html"
+            },
+            {
+                "title": "评论管理",
+                "icon": "fa-comments-o",
+                "href": "comments.html"
+            }
+        ]
+    },
+    {
+        "title": "权限管理",
+        "icon": "fa-user-secret",
+        "spread": false,
+        "children": [
+            {
+                "title": "用户管理",
+                "icon": "fa-user",
+                "href": "user.html"
+            },
+            {
+                "title": "用户组管理",
+                "icon": "fa-object-group",
+                "href": "group.html"
+            }
+        ]
+    },
+    {
+        "title": "站点配置",
+        "icon": "fa-cogs",
+        "spread": false,
+        "children": [
+            {
+                "title": "网站配置",
+                "icon": "fa-cog",
+                "href": "webconfig.html"
+            },
+            {
+                "title": "上传配置",
+                "icon": "fa-upload",
+                "href": "upconfig.html"
             }
         ]
     }
-
-
 ]
 
