@@ -91,7 +91,6 @@ layui.config({
         }
     });
     //iframe自适应
-
     $(window).on('resize', function () {
         var $content = $('.admin-nav-card .layui-tab-content');
         $content.height($(this).height() - 147);
@@ -99,4 +98,11 @@ layui.config({
             $(this).height($content.height());
         });
     }).resize();
+    //手机左侧竖导航
+    $('.site-tree-mobile').on('click', function () {
+        $('body').addClass('site-mobile');
+    });
+    $('.site-mobile-shade').on('click', function () {
+        $('body').removeClass('site-mobile');
+    });
 });
