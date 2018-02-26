@@ -62,7 +62,6 @@ layui.config({
         navbar.cleanCached();
         layer.alert('清除完成!', { icon: 1, title: '系统提示' }, function () {
             location.reload();//刷新
-
         });
     });
     $('.admin-side-toggle').on('click', function () {
