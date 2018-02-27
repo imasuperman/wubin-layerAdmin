@@ -47,27 +47,24 @@
             });
             $('#add').on('click', function() {
                 layer.open({
-                    type: 2,
+                    type: 1,
                     title: '添加导航',
                     area: ['700px', '450px'],
                     fixed: false, //不固定
                     maxmin: true,
                     shade: [0.3, '#000'],
                     btn: ['保存', '取消'],//遮罩
-                    content: $('#addNavContent').html(),
+                    content: $('#addNavContent'),
                     anim:0,//弹出动画
                     yes: function(index, layero){
                         //do something
+                        alert(1)
                         layer.close(index); //如果设定了yes回调，需进行手工关闭
                     },
                     cancel: function(index, layero){
-                        layer.msg('确定要关闭么？', {
-                            time: 0 //不自动关闭
-                            ,btn: ['确定', '取消']
-                            ,yes: function(item){
-                                layer.close(item);
-                                layer.close(index)
-                            }
+                        layer.confirm('未保存的数据可能会丢失，确定要关闭吗?', { icon: 3, title: '系统提示' }, function (item) {
+                            layer.close(item);//关闭confirm
+                            layer.close(index);//关闭弹出层
                         });
                         return false;
                     }
@@ -75,6 +72,6 @@
             });
         });
     </script>
-    <div id="addNavContent"></div>
+    <div id="addNavContent">asdas</div>
 </body>
 </html>
