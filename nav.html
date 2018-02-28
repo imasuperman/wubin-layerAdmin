@@ -46,32 +46,37 @@
                 ,page: true//开启分页
             });
             $('#add').on('click', function() {
-                layer.open({
-                    type: 1,
-                    title: '添加导航',
-                    area: ['700px', '450px'],
-                    fixed: false, //不固定
-                    maxmin: true,
-                    shade: [0.3, '#000'],
-                    btn: ['保存', '取消'],//遮罩
-                    content: $('#addNavContent'),
-                    anim:0,//弹出动画
-                    yes: function(index, layero){
-                        //do something
-                        alert(1)
-                        layer.close(index); //如果设定了yes回调，需进行手工关闭
-                    },
-                    cancel: function(index, layero){
-                        layer.confirm('未保存的数据可能会丢失，确定要关闭吗?', { icon: 3, title: '系统提示' }, function (item) {
-                            layer.close(item);//关闭confirm
-                            layer.close(index);//关闭弹出层
-                        });
-                        return false;
-                    }
-                });
+                $.get('addNav.html', null, function(navform) {
+                    layer.open({
+                        type: 1,
+                        title: '添加导航',
+                        area: ['600px', '350px'],
+                        fixed: false, //不固定
+                        maxmin: true,
+                        shade: [0.3, '#000'],//遮罩
+                        btn: ['保存', '取消'],
+                        content: navform,
+                        anim:0,//弹出动画
+                        yes(index, layero){
+                            //do something
+                            $('form.layui-form').find('button[lay-filter=addNav]').click();
+                            // layer.close(index); //如果设定了yes回调，需进行手工关闭
+                        },
+                        success(){
+                            //弹出窗口成功后渲染表单
+                            form.render();
+                        },
+                        cancel(index, layer){
+                            layer.confirm('未保存的数据可能会丢失，确定要关闭吗?', { icon: 3, title: '系统提示' }, function (item) {
+                                layer.close(item);//关闭confirm
+                                layer.close(index);//关闭弹出层
+                            });
+                            return false;
+                        }
+                    });
+                })
             });
         });
     </script>
-    <div id="addNavContent">asdas</div>
 </body>
 </html>

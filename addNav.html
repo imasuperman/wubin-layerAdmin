@@ -1,0 +1,33 @@
+<div id="addNavContent" style="margin: 15px;">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">导航名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="" placeholder="请输入导航名称" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">请输入图标</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" placeholder=" & #xe641 ;fa-tags" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">图标layer-icon、Font Awesome</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属导航</label>
+            <div class="layui-input-block">
+                <select name="" lay-verify="required">
+                    <option value="1">一级导航</option>
+                    <option value="2">内容管理</option>
+                    <option value="3">权限管理</option>
+                    <option value="4">配置管理</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="addNav" style="display: none"></button>
+            </div>
+        </div>
+    </form>
+</div>

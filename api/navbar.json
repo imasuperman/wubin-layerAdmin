@@ -6,7 +6,7 @@
         "children": [
             {
                 "title": "导航管理",
-                "icon": "",
+                "icon": "&#xe641;",
                 "href": "nav.html"
             },
             {
