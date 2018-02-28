@@ -36,7 +36,7 @@
                     {type:'checkbox'}
                     ,{field:'id', title: 'ID', sort: true}
                     ,{field:'nav_name', title: '导航名称'}
-                    ,{fixed: 'right',title:'操作', width: 160, align: 'center', toolbar: '#toolBar'}
+                    ,{fixed: 'right',title:'操作', width: 220, align: 'center', toolbar: '#toolBar'}
                 ]]
                 ,page: true//开启分页
             });
@@ -83,15 +83,32 @@
                         layer.close(index);
                     });
                 } else if(obj.event === 'edit'){
-                    layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                    //layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                    $.post('editNav.html', data, function(navform) {
+                        //弹出窗口成功后渲染表单
+                        var index = layer.open({
+                            type: 1,
+                            content: navform,
+                            area: ['100%', '100%'],
+                            maxmin: true,
+                            success(){
+                                //弹出窗口成功后渲染表单
+                                form.render();
+                                //右上角tips
+                                layer.tips('点击这里返回', '.layui-layer-close1', {
+                                    tips: 3
+                                });
+                            },
+                        });
+                    });
                 }
             });
         });
     </script>
     <script type="text/html" id="toolBar">
-        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail"><i class="layui-icon">&#xe857;</i>查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe639;</i>编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon"></i>删除</a>
     </script>
 </body>
 </html>
