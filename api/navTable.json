@@ -5,27 +5,11 @@
   "data": [
     {
       "id": 10000,
-      "nav_name": "user-0",
-      "sex": "女",
-      "city": "城市-0",
-      "sign": "签名-0",
-      "experience": 255,
-      "logins": 24,
-      "wealth": 82830700,
-      "classify": "作家",
-      "score": 57
+      "nav_name": "内容管理"
     },
     {
       "id": 10001,
-      "nav_name": "user-1",
-      "sex": "女",
-      "city": "城市-0",
-      "sign": "签名-0",
-      "experience": 255,
-      "logins": 24,
-      "wealth": 82830700,
-      "classify": "作家",
-      "score": 57
+      "nav_name": "权限管理"
     }
   ]
 }

@@ -19,7 +19,7 @@
                 <i class="layui-icon"></i>批量删除
             </a>
         </blockquote>
-        <table class="layui-hide" id="test"></table>
+        <table class="layui-hide" lay-filter="navDemo" id="test"></table>
     </div>
     <script src="plugin/layui/layui.js"></script>
     <script>
@@ -27,6 +27,7 @@
             var table = layui.table
                 ,form = layui.form
                 ,$ = layui.jquery;
+            //渲染表格
             table.render({
                 elem: '#test'
                 ,url:'./api/navTable.json'
@@ -34,17 +35,12 @@
                 ,cols: [[
                     {type:'checkbox'}
                     ,{field:'id', title: 'ID', sort: true}
-                    ,{field:'nav_name', title: '用户名'}
-                    ,{field:'sex', title: '性别', sort: true}
-                    ,{field:'city', title: '城市'}
-                    ,{field:'sign', title: '签名'}
-                    ,{field:'classify', title: '职业', align: 'center'}
-                    ,{field:'experience', title: '积分',  align: 'right'}
-                    ,{field:'score', title: '评分',  align: 'right'}
-                    ,{field:'wealth', title: '财富', align: 'right'}
+                    ,{field:'nav_name', title: '导航名称'}
+                    ,{fixed: 'right',title:'操作', width: 160, align: 'center', toolbar: '#toolBar'}
                 ]]
                 ,page: true//开启分页
             });
+            //添加导航事件
             $('#add').on('click', function() {
                 $.get('addNav.html', null, function(navform) {
                     layer.open({
@@ -66,8 +62,8 @@
                             //弹出窗口成功后渲染表单
                             form.render();
                         },
-                        cancel(index, layer){
-                            layer.confirm('未保存的数据可能会丢失，确定要关闭吗?', { icon: 3, title: '系统提示' }, function (item) {
+                        cancel:function(index, layero) {
+                            layer.confirm('未保存的数据可能会丢失，确定要关闭吗?', {icon: 3, title: '系统提示'}, function (item) {
                                 layer.close(item);//关闭confirm
                                 layer.close(index);//关闭弹出层
                             });
@@ -76,7 +72,26 @@
                     });
                 })
             });
+            //监听工具条
+            table.on('tool(navDemo)', function(obj){
+                var data = obj.data;
+                if(obj.event === 'detail'){
+                    layer.msg('ID：'+ data.id + ' 的查看操作');
+                } else if(obj.event === 'del'){
+                    layer.confirm('真的删除行么', function(index){
+                        obj.del();
+                        layer.close(index);
+                    });
+                } else if(obj.event === 'edit'){
+                    layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                }
+            });
         });
+    </script>
+    <script type="text/html" id="toolBar">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
 </body>
 </html>
