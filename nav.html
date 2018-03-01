@@ -15,11 +15,16 @@
             <a href="javascript:;" class="layui-btn layui-btn-sm" id="add">
                 <i class="layui-icon"></i> 添加信息
             </a>
-            <a class="layui-btn layui-btn-sm layui-btn-danger">
+            <a class="layui-btn layui-btn-sm layui-btn-danger" id="delAll">
                 <i class="layui-icon"></i>批量删除
             </a>
         </blockquote>
-        <table class="layui-hide" lay-filter="navDemo" id="test"></table>
+        <fieldset class="layui-elem-field">
+            <legend>数据列表</legend>
+            <div class="layui-field-box layui-form" id="content">
+                <table class="layui-hide" lay-filter="navDemo" id="test"></table>
+            </div>
+        </fieldset>
     </div>
     <script src="plugin/layui/layui.js"></script>
     <script>
@@ -90,7 +95,6 @@
                             type: 1,
                             content: navform,
                             area: ['100%', '100%'],
-                            maxmin: true,
                             success(){
                                 //弹出窗口成功后渲染表单
                                 form.render();
@@ -102,6 +106,21 @@
                         });
                     });
                 }
+            });
+            //全部删除事件
+            //获取所有选择的列
+            $('#delAll').on('click', function() {
+                var names = '';
+                $('#content .layui-form .layui-table-box .layui-table-main table tbody tr').each(function() {
+                    var _this = $(this);
+                    var $cbx = _this.children('td').eq(0).find('.layui-form-checkbox').hasClass('layui-form-checked');
+                    if($cbx) {
+                        // var id = _this.children('td:last-child').children('a[data-opt=edit]').data('name');
+                        var id = _this.children('td').eq(1).find('div').text();
+                        names += id + ',';
+                    }
+                });
+                layer.msg('你选择的ID有：' + names);
             });
         });
     </script>
